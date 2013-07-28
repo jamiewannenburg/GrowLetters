@@ -1,0 +1,32 @@
+<head>
+	<title>
+	Grow Letters Example
+	</title>
+	<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="sylvester.js"></script>
+	<script src="http://raphaeljs.com/helvetica.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="growletter.js"></script>
+	
+</head>
+<body>
+	<h1>Hit a key:</h1>
+	<input id="keycatcher" value="" type="text" style=" position:absolute; top: -9999em; left: -9999em;"/>
+    <div id="SvgContainer">
+        <svg height="500" version="1.1" width="800" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.5px; top: 0.5px;">
+            <path id="N" stroke="black" stroke-width="1" d="M0 0 L500 0" />
+        </svg>
+    </div>
+	<script>
+		$(document).ready(function(){
+			$('#keycatcher').get(0).focus();
+			$('#keycatcher').keyup(function(){
+				var keys = this.value;
+				var key = keys.charAt(keys.length - 1);
+				//console.log(key);
+				var path = $('#N').get(0);
+				grow(key,path);
+			});
+		});
+	</script>
+</body>
+
